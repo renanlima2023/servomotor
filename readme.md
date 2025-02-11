@@ -44,13 +44,14 @@ Os testes realizados demonstram que o servomotor responde corretamente aos sinai
 
 Para um melhor entendimento da implementação, assista ao video ensaio no link abaixo:
 
-[Video de demonstração]()
+[Video de demonstração](https://www.youtube.com/watch?v=uydkDI5Abd8)
 
 ## Autor
 
-[Renan Lima] - [GitHub](https://github.com/renanlima2023)
+Renan Lima - [GitHub](https://github.com/renanlima2023)
 
 ---
 
-Este projeto faz parte das atividades da disciplina ministrada pelo Prof. Dr. Ricardo Menezes Prates, 05/02/2025.
+Este projeto faz parte das atividades da disciplina ministrada pelo Prof. Dr. Ricardo Menezes Prates.
+
 
