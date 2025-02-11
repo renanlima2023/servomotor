@@ -3,9 +3,7 @@
 #include "hardware/pwm.h"
 
 #define SERVO_PIN 22  // Pino do servo no PWM
-#define LED_R_PIN 12   // Pino do LED RGB - Canal Vermelho
-#define LED_G_PIN 13   // Pino do LED RGB - Canal Verde
-#define LED_B_PIN 14   // Pino do LED RGB - Canal Azul
+#define LED_R_PIN 12   // Pino do LED 
 #define PWM_FREQ 50    // Frequência de 50Hz
 #define PWM_WRAP 20000 // Contagem total do PWM para 50Hz
 
@@ -23,35 +21,28 @@ void setup_pwm(uint pin) {
 // Função para configurar o PWM para o LED RGB
 void setup_led_pwm() {
     gpio_set_function(LED_R_PIN, GPIO_FUNC_PWM);
-    gpio_set_function(LED_G_PIN, GPIO_FUNC_PWM);
-    gpio_set_function(LED_B_PIN, GPIO_FUNC_PWM);
+
 
     uint slice_r = pwm_gpio_to_slice_num(LED_R_PIN);
-    uint slice_g = pwm_gpio_to_slice_num(LED_G_PIN);
-    uint slice_b = pwm_gpio_to_slice_num(LED_B_PIN);
+    
 
     pwm_set_wrap(slice_r, PWM_WRAP);
-    pwm_set_wrap(slice_g, PWM_WRAP);
-    pwm_set_wrap(slice_b, PWM_WRAP);
+   
 
     pwm_set_clkdiv(slice_r, 125.0f);
-    pwm_set_clkdiv(slice_g, 125.0f);
-    pwm_set_clkdiv(slice_b, 125.0f);
+  
 
     pwm_set_enabled(slice_r, true);
-    pwm_set_enabled(slice_g, true);
-    pwm_set_enabled(slice_b, true);
+   
 }
 
 // Função para definir a intensidade do LED RGB (ajustando os duty cycles)
 void set_led_intensity(uint r_intensity, uint g_intensity, uint b_intensity) {
     uint slice_r = pwm_gpio_to_slice_num(LED_R_PIN);
-    uint slice_g = pwm_gpio_to_slice_num(LED_G_PIN);
-    uint slice_b = pwm_gpio_to_slice_num(LED_B_PIN);
+    
 
     pwm_set_gpio_level(LED_R_PIN, r_intensity);
-    pwm_set_gpio_level(LED_G_PIN, g_intensity);
-    pwm_set_gpio_level(LED_B_PIN, b_intensity);
+    
 }
 
 // Função para movimentação suave do servo e controle da intensidade do LED
